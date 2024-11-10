@@ -115,11 +115,9 @@ def get_nvdi_averages(directory, fips_polygon, dataframe, FIPS_CODE):
 
 ## main method
 
-if __name__ == '__main__':
+def main(years, fips_codes):
     cowsay.cow("Vamos!")
 
-    years = ['2015']
-    fips_codes = ['06023', '06059']
     dataframe = pd.DataFrame(columns=["DAY", "FIPS", "NVDI_AVG"])
 
     ### DOWNLOAD NDVI DATA BY YEAR ###
@@ -142,4 +140,4 @@ if __name__ == '__main__':
         dataframe = get_nvdi_averages(directory, fips_polygon, dataframe, FIPS_CODE)
     
     ### SAVE DATAFRAME TO CSV ###
-    dataframe.to_csv('output.csv', index=False)
+    dataframe.to_csv('average_nvdi_per_day.csv', index=False)
